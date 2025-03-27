@@ -1,0 +1,16 @@
+name: Update tags
+
+on:
+  push:
+    tags: 'v*'
+
+jobs:
+  release:
+    name: Update tags
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - uses: cssnr/update-version-tags-action@v1.2
