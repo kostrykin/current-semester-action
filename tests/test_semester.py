@@ -1,10 +1,10 @@
 import datetime
 import unittest
 
-import meta
+import semester
 
 
-class meta_Test(unittest.TestCase):
+class semester_Test(unittest.TestCase):
 
     def test_current(self):
         fixtures = [
@@ -77,7 +77,7 @@ class meta_Test(unittest.TestCase):
         ]
         for kwargs, expected in fixtures:
             with self.subTest(**kwargs):
-                actual = meta.expand(**kwargs)
+                actual = semester.expand(**kwargs)
                 self.assertEqual(actual, expected)
 
     def test_next(self):
@@ -151,7 +151,7 @@ class meta_Test(unittest.TestCase):
         ]
         for kwargs, expected in fixtures:
             with self.subTest(**kwargs):
-                actual = meta.expand(**kwargs)
+                actual = semester.expand(**kwargs)
                 self.assertEqual(actual, expected)
 
     def test_current_floor_ws(self):
@@ -225,7 +225,7 @@ class meta_Test(unittest.TestCase):
         ]
         for kwargs, expected in fixtures:
             with self.subTest(**kwargs):
-                actual = meta.expand(**kwargs)
+                actual = semester.expand(**kwargs)
                 self.assertEqual(actual, expected)
 
     def test_next_floor_ws(self):
@@ -299,7 +299,7 @@ class meta_Test(unittest.TestCase):
         ]
         for kwargs, expected in fixtures:
             with self.subTest(**kwargs):
-                actual = meta.expand(**kwargs)
+                actual = semester.expand(**kwargs)
                 self.assertEqual(actual, expected)
 
     def test_current_floor_ss(self):
@@ -373,7 +373,7 @@ class meta_Test(unittest.TestCase):
         ]
         for kwargs, expected in fixtures:
             with self.subTest(**kwargs):
-                actual = meta.expand(**kwargs)
+                actual = semester.expand(**kwargs)
                 self.assertEqual(actual, expected)
 
     def test_next_floor_ss(self):
@@ -447,5 +447,5 @@ class meta_Test(unittest.TestCase):
         ]
         for kwargs, expected in fixtures:
             with self.subTest(**kwargs):
-                actual = meta.expand(**kwargs)
+                actual = semester.expand(**kwargs)
                 self.assertEqual(actual, expected)
