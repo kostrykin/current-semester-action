@@ -1,0 +1,36 @@
+name: Determine the current semester
+inputs:
+
+  which:
+    description: Determine the `current` or the `next` summer/winter semester.
+    required: false
+    default: 'current'
+
+  floor:
+    description: Floor the current/next semester to the last/current winter semester (`ws`) or summer semester (`ss`).
+    required: false
+    default: ''
+
+outputs:
+
+  name:
+    description: The name of the determined semester (short notation).
+    value: ${{ steps.meta.outputs.name }}
+
+  description:
+    description: The description of the determined semester (long notation).
+    value: ${{ steps.meta.outputs.description }}
+
+runs:
+
+  using: "composite"
+  steps:
+
+    - run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+      shell: bash
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+    - run: meta.py --which "${{ inputs.which }}" --floor "${{ inputs.floor }}" >> "$GITHUB_OUTPUT"
+      id: meta
+      shell: bash
