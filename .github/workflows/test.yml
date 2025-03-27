@@ -29,17 +29,25 @@ jobs:
         with:
           which: current
 
+      - run: echo ${{ steps.current-semester.name }}
+
       - uses: ./
         id: next-semester
         with:
           which: next
+
+      - run: echo ${{ steps.next-semester.name }}
 
       - uses: ./
         id: current-semester-ws
         with:
           floor: ws
 
+      - run: echo ${{ steps.current-semester-ws.name }}
+
       - uses: ./
         id: current-semester-ss
         with:
           floor: ss
+
+      - run: echo ${{ steps.current-semester-ss.name }}

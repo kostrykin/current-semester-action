@@ -15,11 +15,11 @@ outputs:
 
   name:
     description: The name of the determined semester (short notation).
-    value: ${{ steps.meta.outputs.name }}
+    value: ${{ steps.semester.outputs.name }}
 
   description:
     description: The description of the determined semester (long notation).
-    value: ${{ steps.meta.outputs.description }}
+    value: ${{ steps.semester.outputs.description }}
 
 runs:
 
@@ -31,6 +31,6 @@ runs:
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
-    - run: meta.py --which "${{ inputs.which }}" --floor "${{ inputs.floor }}" >> "$GITHUB_OUTPUT"
-      id: meta
+    - run: semester.py --which "${{ inputs.which }}" --floor "${{ inputs.floor }}" >> "$GITHUB_OUTPUT"
+      id: semester
       shell: bash
